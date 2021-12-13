@@ -1,11 +1,13 @@
+from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.authtoken.serializers import AuthTokenSerializer
 
 from security.models import Token
 
 
 class LoginView(APIView):
+    authentication_classes = []
+    permission_classes = []
     serializer_class = AuthTokenSerializer
 
     def get_serializer_context(self):
